@@ -1,0 +1,25 @@
+<h3 style="color: black;">List Cars</h3>
+<a href="/cars" class="btn btn-outline-primary">All</a>
+<a href="/cars/size/small" class="btn btn-outline-primary">Small</a>
+<a href="/cars/size/medium" class="btn btn-outline-primary">Medium</a>
+<a href="/cars/size/large" class="btn btn-outline-primary">Large</a>
+<a href="/cars/add" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add New Car</a><br><br>
+<div class="row">
+
+    <% data.forEach(result => { %>
+    <div class="col-lg-4 py-2">
+        <div class="card">
+            <img src="<%= result.foto %>" class="card-img-top" width="330" height="220">
+            <div class="card-body">
+                <p style="color: black;"><%= result.nama %></p>
+                <p style="color: black;">Rp <%= result.sewa %> / hari</p>
+                <p><img src="/../img/fi_clock.png"> Updated at <%= result.updatedAt %></p>
+                <a href="/cars/<%= result.id %>" onclick="return confirm('Are you sure?')" class="btn btn-outline-danger
+                    px-4"><i class="fas fa-trash fa-sm mr-2"></i>Delete</a>
+                <a href="/cars/update/<%= result.id %>" class="btn btn-outline-success px-4"><i
+                        class="fas fa-pen fa-sm mr-2"></i>Edit</a>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
